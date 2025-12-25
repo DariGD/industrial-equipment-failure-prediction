@@ -1,0 +1,4 @@
+type: logistic
+max_iter: 1000
+class_weight: balanced
+scale_pos_weight: 9

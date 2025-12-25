@@ -1,0 +1,2 @@
+path: industrial_failure/data/industrial_equipment.csv
+target_col: faulty

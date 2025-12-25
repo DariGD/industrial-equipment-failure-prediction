@@ -6,11 +6,28 @@ authors = [
     {name = "Daria",email = "Gaydukova364@gmail.com"}
 ]
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<3.15"
 dependencies = [
+    "pandas (>=2.3.3,<3.0.0)",
+    "numpy (>=2.3.5,<3.0.0)",
+    "scikit-learn (>=1.8.0,<2.0.0)",
+    "torch (>=2.9.1,<3.0.0)",
+    "pytorch-lightning (>=2.6.0,<3.0.0)",
+    "torchmetrics (>=1.8.2,<2.0.0)",
+    "xgboost (>=3.1.2,<4.0.0)",
+    "hydra-core (>=1.3.2,<2.0.0)",
+    "mlflow (>=3.7.0,<4.0.0)",
+    "dvc[gdrive] (>=3.64.2,<4.0.0)"
 ]
 
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pre-commit (>=4.5.0,<5.0.0)",
+    "ruff (>=0.14.8,<0.15.0)",
+    "black (>=25.12.0,<26.0.0)"
+]

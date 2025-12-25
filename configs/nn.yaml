@@ -1,0 +1,6 @@
+defaults:
+  - data: data
+  - model: nn_config
+  - training: nn_setup
+  - logging: mlflow
+  - _self_

@@ -1,0 +1,34 @@
+stages:
+  train_baseline:
+    cmd: python industrial_failure/training/train_baseline.py
+    deps:
+      - industrial_failure/training/train_baseline.py
+      - industrial_failure/data/equipment_anomaly_data.csv
+      - industrial_failure/utils/preprocessing.py
+      - industrial_failure/models/baseline.py
+      - configs/baseline_config.yaml
+      - configs/data.yaml
+    outs:
+      - industrial_failure/models/baseline_model.pkl
+      - industrial_failure/models/preprocessor.pkl
+
+  train_nn:
+    cmd: python industrial_failure/training/train_nn.py
+    deps:
+      - industrial_failure/training/train_nn.py
+      - industrial_failure/data/equipment_anomaly_data.csv
+      - industrial_failure/models/nn.py
+      - configs/nn_config.yaml
+      - configs/data.yaml
+    outs:
+      - industrial_failure/models/neural_network.pth
+      - industrial_failure/models/preprocessor_nn.pkl
+
+  predict:
+    cmd: python industrial_failure/inference/predict.py --file_path industrial_failure/data/new_sample.csv --model_type nn
+    deps:
+      - industrial_failure/inference/predict.py
+      - industrial_failure/models/neural_network.pth
+      - industrial_failure/models/preprocessor_nn.pkl
+    outs:
+      - industrial_failure/inference/predictions.csv

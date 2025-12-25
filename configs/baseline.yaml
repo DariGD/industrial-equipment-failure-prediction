@@ -1,0 +1,6 @@
+defaults:
+  - data: data
+  - model: baseline_config
+  - training: default
+  - logging: mlflow
+  - _self_

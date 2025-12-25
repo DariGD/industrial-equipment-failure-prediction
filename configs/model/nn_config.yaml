@@ -1,0 +1,6 @@
+name: neural_net
+input_dim: 6
+hidden_dims: [128, 64]
+dropout: 0.2
+lr: 1e-3
+gamma: 2.0
